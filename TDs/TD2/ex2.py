@@ -22,6 +22,7 @@ X = data.iloc[:, 0:nbCol - 1]
 y = data.iloc[:, nbCol - 1:nbCol]
 
 # convert from data frames to numpy arrays
+
 X = np.array(X.values)
 y = np.array(y.values)
 
@@ -31,7 +32,7 @@ y = np.array(y.values)
 
 # %% ============ Part 2: Compute Cost and Gradient ============
 
-#  Setup the data matrix appropriately, and add ones for the intercept term
+#  Set up the data matrix appropriately, and add ones for the intercept term
 m, n = X.shape
 
 # Add intercept term to x and X_test
@@ -62,7 +63,7 @@ print('Expected cost (approx): 0.218')
 print('Gradient at test theta:' + str(grad))
 print('Expected gradients (approx): 0.043 2.566 2.647')
 
-##%% ============= Part 3: Optimizing using scipy  =============
+# #%% ============= Part 3: Optimizing using scipy  =============
 theta = opt.fmin_tnc(costFunction, initial_theta, gradientFunction, args=(X, y))
 theta = theta[0]
 cost = costFunction(theta, X, y)
@@ -73,12 +74,12 @@ print('Cost at theta found by scipy: %f' % cost)
 print('Expected cost (approx): 0.203')
 print('\n -------------------------- \n')
 print('theta:', ["%0.4f" % i for i in theta])
-print('Expected theta (approx): -25.161 0.206 0.201');
+print('Expected theta (approx): -25.161 0.206 0.201')
 
 # Plot Boundary
 plotDecisionBoundary(theta, X, y, Lambda=0)
 
-##%%  ============== Part 4: Predict and Accuracies ==============
+# #%%  ============== Part 4: Predict and Accuracies ==============
 
 #  Predict probability for a student with score 45 on exam 1
 #  and score 85 on exam 2
@@ -95,4 +96,4 @@ accuracy = np.mean(np.double(p == np.squeeze(y))) * 100
 
 print('\n -------------------------- \n')
 print('Train Accuracy: %f' % accuracy)
-print('Expected accuracy (approx): 89.0%');
+print('Expected accuracy (approx): 89.0%')

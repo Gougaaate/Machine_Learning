@@ -15,7 +15,7 @@ def plotDecisionBoundary(theta, X, y, Lambda):
     """
 
     # Plot Data
-    plt.figure()
+    fig = plt.figure()
     plotData(X[:,1:], y)
 
     if X.shape[1] <= 3:
@@ -26,7 +26,8 @@ def plotDecisionBoundary(theta, X, y, Lambda):
         plot_y = (-1./theta[2])*(theta[1]*plot_x + theta[0])
 
         # Plot, and adjust axes for better viewing
-        plt.plot(plot_x, plot_y)
+        plt.plot(plot_x, plot_y, color='black', label="decision boundary")
+
 
     else:
 
@@ -43,8 +44,9 @@ def plotDecisionBoundary(theta, X, y, Lambda):
         mycontour = plt.contour( xvals, yvals, zvals, [0])
         #Kind of a hacky way to display a text on top of the decision boundary
         myfmt = { 0:'Lambda = %d'% Lambda}
-        plt.clabel(mycontour, inline=1, fontsize=15, fmt=myfmt)
+        plt.clabel(mycontour, inline=1, fontsize=10, fmt=myfmt)
         plt.title("Decision Boundary")
+        plt.legend()
         plt.show()
 
 def mapFeature(x1col, x2col, degree=6):

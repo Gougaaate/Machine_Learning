@@ -1,6 +1,20 @@
 import numpy as np
 from sigmoid import sigmoid
+from costFunction import h
 
+def dJ_j(X,y,theta,j,Lambda):
+    m = X.shape[0] 
+    dJ_j = 0.
+    if j == 0:
+        for i in range(m):
+            dJ_j = dJ_j + (h(X[i],theta)-y[i])*X[i][j]
+
+    else :
+        for i in range(m):
+            dJ_j = dJ_j + (h(X[i],theta)-y[i])*X[i][j]
+        dJ_j = dJ_j + Lambda*theta[j]    
+    dJ_j = dJ_j/m
+    return dJ_j
 
 def gradientFunctionReg(theta, X, y, Lambda):
     """
@@ -21,9 +35,11 @@ def gradientFunctionReg(theta, X, y, Lambda):
     #               Compute the partial derivatives and set grad to the partial
     #               derivatives of the cost w.r.t. each parameter in theta
     # =============================================================
+    save = np.zeros(n)
 
-
-
+    for j in range(n):
+        save[j] = dJ_j(X,y,theta,j,Lambda)
+    grad = save
 
     # =============================================================
 

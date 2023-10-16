@@ -3,17 +3,15 @@ from matplotlib import pyplot as plt
 
 
 def plotData(X,y):
-    """
-    Plot data X with different markers according the value in y
-    """
-    n = X.shape[1]
-    X_pos = X[(y == 1).flatten(), :]
-    X_neg = X[(y == 0).flatten(), :]
-    plt.plot(X_pos[:,0], X_pos[:,1], 'o', markeredgecolor='black', color='lightgreen')
-    plt.plot(X_neg[:,0], X_neg[:,1], '+', color='red')
 
-    plt.grid()
-    plt.xlabel('Exam 1 score')
-    plt.ylabel('Exam 2 score')
+	
+	pos = X[(y==1).flatten(),:]
+	neg = X[(y==0).flatten(),:]
+	plt.plot(pos[:,0], pos[:,1], 'o', markersize=7, markeredgecolor='green', markerfacecolor='green')
+	plt.plot(neg[:,0], neg[:,1], '+', markersize=7, markeredgecolor='red')
+	plt.legend(['Admitted (y=1)', 'Not admitted (y=0)'], loc='upper right', shadow=True, fontsize='x-large',numpoints=1)
+	plt.grid(True)
+	plt.ylabel('Exam 2 score')
+	plt.xlabel('Exam 1 score')
 
-    plt.show()
+

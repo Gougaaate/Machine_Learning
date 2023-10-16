@@ -60,6 +60,7 @@ plotData(X, y)
 plt.xlabel('Microchip Test 1')
 plt.ylabel('Microchip Test 2')
 
+plt.show()
 
 #%% =========== Part 1: Regularized Logistic Regression ============
 

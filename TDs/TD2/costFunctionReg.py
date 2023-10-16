@@ -1,5 +1,6 @@
 import numpy as np
 from sigmoid import sigmoid
+from costFunction import h,costFunction
 
 
 def costFunctionReg(theta, X, y, Lambda):
@@ -22,9 +23,11 @@ def costFunctionReg(theta, X, y, Lambda):
     #               derivatives of the cost w.r.t. each parameter in theta
 
     # =============================================================
-    
-
-
+    J = costFunction(theta,X,y)
+    sum =0.0
+    for j in range(1,n):
+        sum = sum + theta[j]**2
+    J = J + (Lambda/(2*m)) *sum
     
     # =============================================================
     

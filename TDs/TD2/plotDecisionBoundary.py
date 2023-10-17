@@ -15,7 +15,7 @@ def plotDecisionBoundary(theta, X, y, Lambda):
     """
 
     # Plot Data
-    fig = plt.figure()
+    fig = plt.figure("Test")
     plotData(X[:,1:], y)
 
     if X.shape[1] <= 3:
@@ -27,7 +27,7 @@ def plotDecisionBoundary(theta, X, y, Lambda):
 
         # Plot, and adjust axes for better viewing
         plt.plot(plot_x, plot_y, color='black', label="decision boundary")
-
+        plt.show()
 
     else:
 

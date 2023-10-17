@@ -36,23 +36,17 @@ y = np.array(y.values)
 print('Plotting data with + indicating (y = 1) examples and o indicating (y = 0) examples.')
 
 plotData(X, y)
-plt.show()
-
-
-
+# plt.show()
 
 
 #%% ============ Part 2: Compute Cost and Gradient ============
-#  Setup the data matrix appropriately, and add ones for the intercept term
+
 m, n = X.shape
 
-# Add intercept term to x and X_test
 X = np.concatenate((np.ones((m, 1)), X), axis=1)
 
-# Initialize fitting parameters
 initial_theta = np.zeros((n + 1,1))
 
-# Compute and display initial cost and gradient
 cost = costFunction(initial_theta, X, y)
 print('\n -------------------------- \n')
 print('Cost at initial theta (zeros): %f' % cost)
@@ -75,14 +69,6 @@ print('Gradient at test theta:' + str(grad))
 print('Expected gradients (approx): 0.043 2.566 2.647')
 
 
-
-
-
-
-
-
-
-
 ##%% ============= Part 3: Optimizing using scipy  =============
 theta = opt.fmin_tnc(costFunction, initial_theta, gradientFunction, args=(X, y))  
 theta = theta[0]
@@ -99,10 +85,6 @@ print('Expected theta (approx): -25.161 0.206 0.201');
 
 # Plot Boundary
 plotDecisionBoundary(theta, X, y, Lambda=0)
-
-
-
-
 
 
 ##%%  ============== Part 4: Predict and Accuracies ==============

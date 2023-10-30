@@ -61,14 +61,13 @@ print('Training Set Accuracy: %f', np.mean(np.double(pred == np.squeeze(y))) * 1
 print('Expected training Set Accuracy: 97.5%')
 
 #  To give you an idea of the network's output, you can also run
-#  through the examples one at the a time to see what it is predicting.
+#  through the examples one at the time to see what it is predicting.
 
 #  Randomly permute examples
 rp = np.random.permutation(range(m))
 X = X[:, 1:]
-plt.figure()
 for i in range(m):
-    # Display
+    plt.figure()
     X2 = np.array([X[rp[i], :]])
     displayData(X2)
 
@@ -78,5 +77,4 @@ for i in range(m):
     pred = np.squeeze(pred)
     plt.title('Neural Network Prediction: %d (digit %d)\n' % (pred, np.mod(pred, 10)))
 
-    plt.pause(1)
-    plt.close()
+    plt.pause(5)

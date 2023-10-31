@@ -77,4 +77,3 @@ for i in range(m):
     pred = np.squeeze(pred)
     plt.title('Neural Network Prediction: %d (digit %d)\n' % (pred, np.mod(pred, 10)))
 
-    plt.pause(5)

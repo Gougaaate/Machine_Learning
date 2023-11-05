@@ -10,13 +10,10 @@ from computeCost import computeCost
 from gradientDescent import gradientDescent
 from plotData import plotData
 
-# mpl.use('Qt5Agg')
-
 # %% Machine Learning Online Class - Exercise 1: Linear Regression
 
 # x refers to the population size in 10,000s
 # y refers to the profit in $10,000s
-
 
 # %% ==================== Part 1: Basic Function ====================
 
